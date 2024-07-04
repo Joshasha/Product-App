@@ -45,8 +45,8 @@ The Earth Layer Architecture separates the project into distinct layers, each re
      "EmailSettings": {
       "Host": "smtp.gmail.com",
       "Port": 465,
-      "Username": "example@gmail.com",
-      "Password": "Your PassWord"
+      "Username": "ashairejoshua@gmail.com",
+      "Password": "quvxjfamudrlvtjw"
     },
     ```
 
