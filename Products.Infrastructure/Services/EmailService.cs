@@ -18,7 +18,7 @@ namespace Products.Infrastructure.Services
         public async Task SendEmailAsync(string email, string subject, string message)
         {
             var emailMessage = new MimeMessage();
-            emailMessage.From.Add(new MailboxAddress("Your App Name", _configuration["EmailSettings:Username"]));
+            emailMessage.From.Add(new MailboxAddress("Infinion", _configuration["EmailSettings:Username"]));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart("html") { Text = message };
@@ -31,7 +31,7 @@ namespace Products.Infrastructure.Services
                 var username = _configuration["EmailSettings:Username"];
                 var password = _configuration["EmailSettings:Password"];
 
-                await client.ConnectAsync(host, port, MailKit.Security.SecureSocketOptions.StartTls);
+                await client.ConnectAsync(host, port, MailKit.Security.SecureSocketOptions.SslOnConnect);
                 await client.AuthenticateAsync(username, password);
                 await client.SendAsync(emailMessage);
                 await client.DisconnectAsync(true);
